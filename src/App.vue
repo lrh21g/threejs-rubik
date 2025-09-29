@@ -38,7 +38,6 @@ const mode = computed(() => {
 
 <template>
   <van-config-provider :theme="mode">
-    <nav-bar />
     <router-view v-slot="{ Component }">
       <section class="app-wrapper">
         <keep-alive :include="keepAliveRouteNames">
@@ -46,7 +45,6 @@ const mode = computed(() => {
         </keep-alive>
       </section>
     </router-view>
-    <tab-bar />
   </van-config-provider>
 </template>
 
@@ -54,6 +52,6 @@ const mode = computed(() => {
 .app-wrapper {
   width: 100%;
   position: relative;
-  padding: 16px;
+  /* padding: 16px; */
 }
 </style>

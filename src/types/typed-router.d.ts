@@ -20,17 +20,6 @@ declare module 'vue-router/auto-routes' {
   export interface RouteNamedMap {
     'Home': RouteRecordInfo<'Home', '/', Record<never, never>, Record<never, never>>,
     '404': RouteRecordInfo<'404', '/:all(.*)', { all: ParamValue<true> }, { all: ParamValue<false> }>,
-    'Charts': RouteRecordInfo<'Charts', '/charts', Record<never, never>, Record<never, never>>,
-    'Counter': RouteRecordInfo<'Counter', '/counter', Record<never, never>, Record<never, never>>,
-    'ForgotPassword': RouteRecordInfo<'ForgotPassword', '/forgot-password', Record<never, never>, Record<never, never>>,
-    'KeepAlive': RouteRecordInfo<'KeepAlive', '/keepalive', Record<never, never>, Record<never, never>>,
-    'Login': RouteRecordInfo<'Login', '/login', Record<never, never>, Record<never, never>>,
-    'Mock': RouteRecordInfo<'Mock', '/mock', Record<never, never>, Record<never, never>>,
-    'Profile': RouteRecordInfo<'Profile', '/profile', Record<never, never>, Record<never, never>>,
-    'Register': RouteRecordInfo<'Register', '/register', Record<never, never>, Record<never, never>>,
-    'ScrollCache': RouteRecordInfo<'ScrollCache', '/scroll-cache', Record<never, never>, Record<never, never>>,
-    'Settings': RouteRecordInfo<'Settings', '/settings', Record<never, never>, Record<never, never>>,
-    'UnoCSS': RouteRecordInfo<'UnoCSS', '/unocss', Record<never, never>, Record<never, never>>,
   }
 
   /**
@@ -50,50 +39,6 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/[...all].vue': {
       routes: '404'
-      views: never
-    }
-    'src/pages/charts/index.vue': {
-      routes: 'Charts'
-      views: never
-    }
-    'src/pages/counter/index.vue': {
-      routes: 'Counter'
-      views: never
-    }
-    'src/pages/forgot-password/index.vue': {
-      routes: 'ForgotPassword'
-      views: never
-    }
-    'src/pages/keepalive/index.vue': {
-      routes: 'KeepAlive'
-      views: never
-    }
-    'src/pages/login/index.vue': {
-      routes: 'Login'
-      views: never
-    }
-    'src/pages/mock/index.vue': {
-      routes: 'Mock'
-      views: never
-    }
-    'src/pages/profile/index.vue': {
-      routes: 'Profile'
-      views: never
-    }
-    'src/pages/register/index.vue': {
-      routes: 'Register'
-      views: never
-    }
-    'src/pages/scroll-cache/index.vue': {
-      routes: 'ScrollCache'
-      views: never
-    }
-    'src/pages/settings/index.vue': {
-      routes: 'Settings'
-      views: never
-    }
-    'src/pages/unocss/index.vue': {
-      routes: 'UnoCSS'
       views: never
     }
   }
