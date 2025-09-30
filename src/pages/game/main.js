@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import BasicRubik from './object/Rubik'
 
 export default class Main {
   constructor(canvasDom) {
@@ -6,6 +7,8 @@ export default class Main {
     this.width = window.innerWidth
     this.height = window.innerHeight
     this.viewCenter = new THREE.Vector3(0, 0, 0) // 原点
+    this.frontViewName = 'front-rubik'// 正视角魔方名称
+    this.endViewName = 'end-rubik'// 反视角魔方名称
   }
 
   // 初始化渲染器
@@ -62,5 +65,11 @@ export default class Main {
     // 创建一个环境光对象
     this.light = new THREE.AmbientLight(0xFEFEFE)
     this.scene.add(this.light)
+  }
+
+  // 初始化物体
+  initObject() {
+    this.frontRubik = new BasicRubik(this)
+    this.frontRubik.model(this.frontViewName)
   }
 }
