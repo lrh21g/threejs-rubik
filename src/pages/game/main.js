@@ -9,20 +9,27 @@ export default class Main {
     this.viewCenter = new THREE.Vector3(0, 0, 0) // 原点
     this.frontViewName = 'front-rubik'// 正视角魔方名称
     this.endViewName = 'end-rubik'// 反视角魔方名称
+
+    this.initThree()
+    this.initCamera()
+    this.initScene()
+    this.initLight()
+    this.initObject()
+    this.render()
   }
 
   // 初始化渲染器
   initThree() {
-    const renderer = new THREE.WebGLRenderer({
+    this.renderer = new THREE.WebGLRenderer({
       antialias: true, // 是否执行抗锯齿。默认为false
       canvas: this.canvas, // 供渲染器绘制其输出的 canvas
     })
     // 设置设备像素比。通常用于避免HiDPI设备上绘图模糊
-    renderer.setPixelRatio(window.devicePixelRatio)
+    this.renderer.setPixelRatio(window.devicePixelRatio)
     // 将输出 canvas 的大小调整为 (width, height) 并考虑设备像素比，且将视口从 (0, 0) 开始调整到适合大小
-    renderer.setSize(this.width, this.height)
+    this.renderer.setSize(this.width, this.height)
     // 设置颜色及其透明度
-    renderer.setClearColor(0xFFFFFF, 0)
+    this.renderer.setClearColor(0xFFFFFF, 0)
   }
 
   // 初始化相机
@@ -71,5 +78,18 @@ export default class Main {
   initObject() {
     this.frontRubik = new BasicRubik(this)
     this.frontRubik.model(this.frontViewName)
+  }
+
+  // 渲染
+  render() {
+    this.renderer.clear()
+
+    if (this.tagRubik) {
+      this.tagRubik.group.rotation.x += 0.01
+      this.tagRubik.group.rotation.y += 0.01
+    }
+
+    this.renderer.render(this.scene, this.camera)
+    requestAnimationFrame(this.render.bind(this), this.canvas)
   }
 }
